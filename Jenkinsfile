@@ -7,13 +7,16 @@ pipeline {
         stage('Build') {
             steps {
                 echo "Stage Build"
-		echo "My name is ${NAME}"
+				echo "My name is ${NAME}"
             }
         }
         stage('Deploy') {
+			environment {
+				STAGE = 'Deploy'
+			}
             steps {
                 retry(3) {
-                    echo "Stage Deploy"
+                    echo "Stage is ${STAGE} run by ${NAME}"
                 }
                 timeout(time: 3, unit: 'MINUTES') {
                     echo "Health Check"
