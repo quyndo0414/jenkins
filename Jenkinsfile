@@ -3,13 +3,13 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                bat 'set'
+                echo "Stage Build"
             }
         }
         stage('Deploy') {
             steps {
                 retry(3) {
-                    sh './flakey-deploy.sh'
+                    echo "Stage Deploy"
                 }
 
                 timeout(time: 3, unit: 'MINUTES') {
