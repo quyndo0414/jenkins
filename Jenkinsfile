@@ -7,7 +7,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo "Stage Build"
-		printenv NAME
+		echo "My name is ${NAME}"
             }
         }
         stage('Deploy') {
