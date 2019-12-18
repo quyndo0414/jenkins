@@ -1,9 +1,13 @@
 pipeline {
     agent any
+	environment {
+        NAME = 'Quy Do'
+    }
     stages {
         stage('Build') {
             steps {
                 echo "Stage Build"
+				echo $NAME
             }
         }
         stage('Deploy') {
